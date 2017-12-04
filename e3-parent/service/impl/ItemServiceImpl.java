@@ -1,0 +1,22 @@
+package cn.e3.manager.service.impl;
+
+import org.springframework.stereotype.Service;
+
+import cn.e3.manager.service.ItemService;
+import cn.e3.mapper.TbItemMapper;
+import cn.e3.pojo.TbItem;
+
+@Service
+public class ItemServiceImpl implements ItemService {
+
+	//注入商品mapper接口代理对象
+	private TbItemMapper itemMapper;
+	//需求:根据id查询商品信息
+	@Override
+	public TbItem findItemByID(Long itemId) {
+		// 根据主键查询商品数据
+		TbItem item = itemMapper.selectByPrimaryKey(itemId);
+		return item;
+	}
+
+}
